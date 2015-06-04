@@ -1,4 +1,4 @@
-public class j0001_insertionsort {
+public class insertionsort {
     public static void insertionsort(int[] A){
         int i,j,key;
         for(i=1;i<A.length;i++){
