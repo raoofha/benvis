@@ -1,17 +1,18 @@
-(defn bfs [graph start end]
+(defn uniformcostsearch [graph start end]
   ((fn [frontier explored]
     (if (empty? frontier)
       "Failure"
-      (let [path (first frontier)
+      (let [[idx {:keys [path cost]}] (apply min-key (comp :cost second) (map-indexed vector frontier))
             node (peek path)
             childs (keys (graph node))]
         (if (= node end)
           path
           (recur 
-            (concat (rest frontier) (map #(conj path %)
-              (filter #(not (contains? explored %)) childs)))
+            (vec (concat (subvec frontier 0 idx) (subvec frontier (inc idx)) 
+                         (map (fn [c] {:path (conj path c) :cost (+ cost ((graph node) c))}) 
+                              (filter #(not (contains? explored %)) childs))))
             (conj explored node))))))
-    [[start]] #{}))
+    [{:path [start] :cost 0}] #{}))
 
 
 
@@ -103,6 +104,7 @@
             "Iasi" 87
         }})
 
-(println (bfs graph "Neamt" "Iasi"))
-(println (bfs graph "Neamt" "Vaslui"))
-(println (bfs graph "Bucharest" "Arad"))
+(println (uniformcostsearch graph "Neamt" "Iasi"))
+(println (uniformcostsearch graph "Neamt" "Vaslui"))
+(println (uniformcostsearch graph "Bucharest" "Arad"))
+(println (uniformcostsearch graph "Arad" "Bucharest"))

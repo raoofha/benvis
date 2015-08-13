@@ -1,0 +1,112 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class uniformcostsearch {
+    public static String uniformcostsearch(HashMap graph, String start, String end) {
+        List frontier = new ArrayList();
+        List initPath = new ArrayList();
+        List explored = new ArrayList();
+        initPath.add(start);
+        HashMap e = new HashMap();
+        e.put(initPath,0);
+        frontier.add(e);
+        while(!frontier.isEmpty()) {
+            path = frontier.remove(0);
+        }
+        return "Failure";
+    }
+
+    public static void main(String[] args) {
+        HashMap graph = new HashMap();
+        HashMap t = new HashMap();
+        t.put("Zerind", 71);
+        t.put("Sibiu", 151);
+        graph.put("Oradea", t);
+        t = new HashMap();
+        t.put("Oradea", 71);
+        t.put("Arad", 75);
+        graph.put("Zerind", t);
+        t = new HashMap();
+        t.put("Zerind", 75);
+        t.put("Sibiu", 140);
+        t.put("Timisoara", 118);
+        graph.put("Arad", t);
+        t = new HashMap();
+        t.put("Oradea", 151);
+        t.put("Arad", 140);
+        t.put("Fagaras", 99);
+        t.put("Rimnicu Vilcea", 80);
+        graph.put("Sibiu", t);
+        t = new HashMap();
+        t.put("Sibiu", 99);
+        t.put("Bucharest", 211);
+        graph.put("Fagaras", t);
+        t = new HashMap();
+        t.put("Pitesti", 97);
+        t.put("Sibiu", 80);
+        t.put("Craiova", 146);
+        graph.put("Rimnicu Vilcea", t);
+        t = new HashMap();
+        t.put("Arad", 118);
+        t.put("Lugoj", 111);
+        graph.put("Timisoara", t);
+        t = new HashMap();
+        t.put("Mehadia", 70);
+        t.put("Timisoara", 111);
+        graph.put("Lugoj", t);
+        t = new HashMap();
+        t.put("Rimnicu Vilcea", 97);
+        t.put("Craiova", 138);
+        t.put("Bucharest", 101);
+        graph.put("Pitesti", t);
+        t = new HashMap();
+        t.put("Lugoj", 70);
+        t.put("Drobeta", 75);
+        graph.put("Mehadia", t);
+        t = new HashMap();
+        t.put("Craiova", 120);
+        t.put("Mehadia", 75);
+        graph.put("Drobeta", t);
+        t = new HashMap();
+        t.put("Rimnicu Vilcea", 146);
+        t.put("Pitesti", 138);
+        t.put("Drobeta", 120);
+        graph.put("Craiova", t);
+        t = new HashMap();
+        t.put("Fagaras", 211);
+        t.put("Pitesti", 101);
+        t.put("Giurgiu", 90);
+        t.put("Urziceni", 85);
+        graph.put("Bucharest", t);
+        t = new HashMap();
+        t.put("Bucharest", 90);
+        graph.put("Giurgiu", t);
+        t = new HashMap();
+        t.put("Vaslui", 142);
+        t.put("Hirsova", 98);
+        t.put("Bucharest", 85);
+        graph.put("Urziceni", t);
+        t = new HashMap();
+        t.put("Urziceni", 98);
+        t.put("Eforie", 86);
+        graph.put("Hirsova", t);
+        t = new HashMap();
+        t.put("Hirsova", 86);
+        graph.put("Eforie", t);
+        t = new HashMap();
+        t.put("Urziceni", 142);
+        t.put("Iasi", 92);
+        graph.put("Vaslui", t);
+        t = new HashMap();
+        t.put("Neamt", 87);
+        t.put("Vaslui", 92);
+        graph.put("Iasi", t);
+        t = new HashMap();
+        t.put("Iasi", 87);
+        graph.put("Neamt", t);
+        System.out.println(graph);
+        System.out.println(graph.get("Oradea"));
+        System.out.println(((HashMap) graph.get("Oradea")).get("Sibiu"));
+    }
+}
